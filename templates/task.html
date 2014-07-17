@@ -1,0 +1,43 @@
+
+<!-- task sidebar display -->
+<div class="large-4 columns">
+	<h2>Current Tasks</h2>
+		<ul id="taskListing">
+			<li ng-repeat="task in taskList track by $index" ng-click="setSelectedTask(task)">
+				<div class="taskListing" ng-class="{selected: isSelected(task)}">
+					<div>{{ task.title }}</div>
+					<div>{{ task.beginningDate | date}} - {{ task.endingDate | date}}</div>
+				</br>
+				</div>
+			</li>
+		</ul>
+	<div class="addNew">
+		<span>
+			<button type="button" ng-click="showForm(); newTask=true" ng-hide="showButton()" ng-show="showButton()">Add New</button>
+			<button type="button" ng-click="hideForm(); newTask=false" ng-show="showButton()">Cancel New</button>
+		</span>
+	</div>
+</div>
+
+<!-- Detail view -->
+<div class="large-8 columns">
+	<div ng-show="!selectedTask">
+		<h2>No Selected Task</h2>
+	</div>
+	<div class="add-task-modal" ng-include="'templates/taskmodal.html'" ng-show="newTask"></div>
+	<div ng-click="hideForm()" ng-show="selectedTask">
+		<h2>Task Details</h2>
+			<div>Title:{{ selectedTask.title }}</div>
+			<div>Category:{{ selectedTask.category }}</div>
+			<div>Date Range:{{ selectedTask.beginningDate | date}} to {{ selectedTask.endingDate | date}}</div>
+			<div>Days:{{ selectedTask.days }}</div>
+			<div>My Milestones:{{ selectedTask.milestones }}</div>
+			<div>URL:{{ selectedTask.website }}</div>
+			<div>Notes:{{ selectedTask.notes }}</div>
+			<div>Privacy Settings:{{ selectedTask.privacy }}</div>
+			<div><button class="button" ng-click="removeTask(selectedTask)">Delete</button></div>
+	</div>
+</div>
+
+
+

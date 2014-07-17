@@ -1,0 +1,163 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End of CSS Reset */
+body {
+	font-family: arial;
+	font-size: 1.4em;
+	line-height: 1.4rem;
+}
+.container {
+	width: 80%;
+	padding: 15px;
+	margin: 0 auto;
+}
+/* Main Navigation */
+a.logo {
+	padding-top: 1em;
+	text-decoration: none;
+	font-size: 1.5em;
+	color: #fff;
+}
+.mainNav {
+	height: 50px;
+	width: 100%;
+	position: relative;
+	/*background-color: orange;*/
+	background: rgba(255,163,77,1);
+	background: -moz-linear-gradient(top, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,163,77,1)), color-stop(99%, rgba(255,129,11,1)), color-stop(100%, rgba(255,129,10,1)));
+	background: -webkit-linear-gradient(top, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
+	background: -o-linear-gradient(top, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
+	background: -ms-linear-gradient(top, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
+	background: linear-gradient(to bottom, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa34d', endColorstr='#ff810a', GradientType=0 );	
+}
+.mainNav div {
+	padding-top: 0.25em;
+	float: right;
+	display: inline;
+	padding-left: 1em;
+	padding-right: 1em;	
+}
+.mainNav div a {
+
+	text-decoration: none;
+	color: #fff;
+}
+.mainNav div a:hover {
+	color: #000;
+}
+.calendar {
+	margin: 15px;
+}
+.day {
+	padding: 10px;
+	width:30%;
+	min-height: 100px;
+	margin: auto;
+	border: 2px solid orange;
+	border-radius: 5px;
+}
+.previous {
+	float: left;
+}
+.current {
+	float: center;
+}
+.next {
+	float: right;
+}
+.date {
+	width: 100%;
+	border-bottom: 2px solid orange;
+	text-align: center;
+}
+.tasks {
+	margin-top: 5px;
+	width: 100%;
+	display: inline-block;
+	border-bottom: 1px solid orange;	
+}
+.options {
+	float: right;
+	margin-left: 5px;
+	color: #000;
+}
+.options:hover{
+	color: orange;
+}
+.addNew {
+	color: gray;
+	text-align: center;
+	width: 100%;
+	border-bottom: 1px solid orange;	
+}
+.addBtn {
+	margin-top: 5px;
+	display: inline-block;
+	color: #000;
+}
+.addBtn:hover {
+	color: orange;
+}
+/*.add-task-modal {
+	position: absolute;
+	z-index: 1000;
+	background: white;
+	opacity: 0.9;
+
+}*/
+/*.add-task-modal form {
+	padding: 15px;
+	border: 2px solid orange;
+	border-radius: 10px;
+	margin: 0 auto;	
+}*/
+
+

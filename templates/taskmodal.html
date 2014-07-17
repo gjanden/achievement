@@ -1,0 +1,55 @@
+<!-- modal form for adding new task -->
+<form name="add_task" ng-submit="addTask(task)">
+	<fieldset>
+		<legend>Add New</legend>
+			<div class="row">
+					<div>
+					<label>Title</label>
+						<input type="text" ng-model="task.title" placeholder="Give this task a title" class="small-3" />
+
+					<label>Task Category</label>	
+						<select class="small-3" ng-model="task.category" ng-options="opts as opts for opts in categories"/></select>
+<!-- What are the beginning and ending dates -->
+					<legend>Date Range</legend>
+						<div class="row">
+							<label>Beginning Date</label>
+								<input type="date" ng-model="task.beginningDate" class="large-3" />
+							<label>Ending Date</label>	
+								<input type="date" ng-model="task.endingDate" class="small-3" />
+						</div>
+<!-- What days does the task apply to? -->
+						<div class="row">
+							<label>Which Days?</label>
+								<div>
+									<span ng-repeat="day in days">
+									<input type="checkbox" name="selectedDays[]" value="{{ day }}" ng-checked="selection.indexOf(day) > -1" ng-click="toggleSelection(day)"/> {{ day.name }}
+									</span>
+								</div>
+
+						<div>			
+							<legend>Define Your Milestones</legend>
+								<label>Milestone</label>
+									<input type="text" ng-model="task.milestones">
+						</div>
+
+						<div>
+							<legend>Website</legend>
+								<input type="url" name="website" placeholder="If you have one, put it here" ng-model="task.website">
+						</div>
+						<div>
+							<legend>Notes</legend>
+								<textarea rows="5" width="60" placeholder="Enter your notes here" ng-model="task.notes"></textarea>
+						</div>
+						<div>
+							<legend>Privacy</legend>
+								<span ng-repeat="setting in privacy">
+									<input type="radio" name="{{ setting.name }}" value="{{ setting.name }}" ng-model="task.privacy" selected="  "> {{ setting.name }}
+								</span>	
+						</div>
+						<div>
+							<button type="submit" class="button" ng-submit="addTask(task)">Add Task</button>
+						</div>
+					</div>
+			</div>
+	</fieldset>
+</form>

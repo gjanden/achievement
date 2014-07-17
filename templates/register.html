@@ -1,0 +1,44 @@
+	<div onload="registrationPop()">
+		<form name="registration_form" ng-submit="register()">
+		<fieldset>
+			<legend>Update Your Settings</legend>
+				<div class="row">
+					<div class="small-5 columns">
+						<label>Name</label>
+							<input type="text" ng-model="profile.firstName" placeholder="First Name" name="firstname" ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" class="small-3" required />
+								<div ng-show="registration_form.firstName.$dirty && form.firstName.$invalid">
+									<div ng-show="registration_form.firstName.$error.required">You must provide your first name</div>
+									<div ng-show="registration_form.firstName.$error.maxlength">Your name must be fewer than 21 alpha characters</div>
+								</div>
+							<input type="text" ng-model="profile.lastName" placeholder="Last Name" name="lastname" ng-maxlength=20 ng-pattern="/^[a-zA-Z]+$/" class="small-3" required />
+								<div ng-show="registration_form.lastname.$dirty && registration_form.lastname.$invalid">
+
+								</div>
+
+						<label>Email Address</label>
+							<input type="email" ng-model="profile.email" placeholder="email" name="email" required />
+								<div ng-show="registration_form.email.$dirty && registration_form.email.$invalid">
+									Please provide a valid email address
+								</div>
+						<label>Password</label>
+						<input type="password" ng-model="profile.password" placeholder="Password" name="password" required />
+						<input type="password" ng-model="profile.repeatPassword" placeholder="Repeat Password" name="repeatPassword" required />
+<!-- 						<label>Birth Date</label>
+							<select name="month_selector" id="month_selector" class="small-3"></select>
+							<select name="day" class="small-3">
+								<option>Day</option>
+							</select>
+							<select name="year" class="small-3">
+								<option>Year</option>
+							</select>
+								<div ng-show="registration_form.birthdate.$invalid">
+
+								</div> -->
+					</div><!-- .=small-8 colums -->
+					<div class="small-4">								
+						<button type="submit" class="button" ng-disabled="registration_form.$dirty && registration_form.$invalid">Register</button>
+					</div><!-- .push-6 small-4 -->
+				</div><!-- .row -->
+			</fieldset>
+		</form>
+	</div>
