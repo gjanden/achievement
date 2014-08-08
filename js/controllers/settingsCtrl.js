@@ -1,4 +1,4 @@
-angular.module('SettingsModule', [])
-	.controller('settingsCtrl', ['$scope',function($scope){
+angular.module('achievementApp')
+	.controller('settingsCtrl',function($scope){
 		
-	}]);
+	});

@@ -1,5 +1,7 @@
 var User = require('../API/user.js');
 var Task = require('../API/task.js');
+var twilio = require('twilio');
+var client = new twilio.RestClient('AC7902c7568d763bc50ad0628166dcf86b', 'f88bbab8636f014b91dbfcc3ef76301f');
 //Users
 exports.getUser = function(req, res){
 	User.find({}, function(err, users){
@@ -69,21 +71,19 @@ exports.deleteTask = function(req, res){
 	});
 };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+exports.sendText = function(req, res){
+	client.sendSms({
+    to:'18018855902',
+    from:'18018511925',
+    body:'ahoy hoy! Testing Twilio and node.js'
+}, function(error, message) {
+    if (!error) {
+        console.log('Success! The SID for this SMS message is:');
+        console.log(message.sid);
+        console.log('Message sent on:');
+        console.log(message.dateCreated);
+    } else {
+        console.log('Oops! There was an error.');
+    }
+   })
+	};

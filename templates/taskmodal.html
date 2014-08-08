@@ -1,53 +1,89 @@
 <!-- modal form for adding new task -->
-<form name="add_task" ng-submit="addTask(task)">
+<form name="addGoal" ng-submit="addTask(task)">
 	<fieldset>
-		<legend>Add New</legend>
+		<legend>Add a new goal:</legend>
 			<div class="row">
 					<div>
-					<label>Title</label>
-						<input type="text" ng-model="task.title" placeholder="Give this task a title" class="small-3" />
-
-					<label>Task Category</label>	
-						<select class="small-3" ng-model="task.category" ng-options="opts as opts for opts in categories"/></select>
-<!-- What are the beginning and ending dates -->
-					<legend>Date Range</legend>
-						<div class="row">
-							<label>Beginning Date</label>
-								<input type="date" ng-model="task.beginningDate" class="large-3" />
-							<label>Ending Date</label>	
-								<input type="date" ng-model="task.endingDate" class="small-3" />
+						<div class="large-8 inlineblock">
+							<label>Goal Title: <span class="required">*</span></label>
+								<input type="text" name="title" ng-model="task.title" placeholder="Give this task a title" ng-minlength="5" class="small-3" required />
 						</div>
+						<div class="large-3 inlineblock">
+							<label>Goal Category <span class="required">*</span></label>	
+								<select ng-model="task.category" ng-options="opts as opts for opts in categories" required /></select>
+						</div>
+						<div class="large-11" ng-show="addGoal.title.$dirty && addGoal.title.$invalid">
+							<div ng-show="addGoal.title.$error.required" class="required">You must give this goal a title.</div>
+							<div ng-show="addGoal.title.$error.minlength" class="required">Your title must be at least 5 characters.</div>
+						</div>
+
+<!-- What are the beginning and ending dates -->
+					<legend>Set your dates:</legend>
+						<div class="large-4 inlineblock">
+							<label>When do you want to start? <span class="required">*</span></label>
+								<input type="date" ng-model="task.beginningDate" required />
+						</div>
+						<div class="large-4 inlineblock">
+							<label>What is your target date? <span class="required">*</span></label>	
+								<input type="date" ng-model="task.endingDate" required />
+						</div>
+
 <!-- What days does the task apply to? -->
-						<div class="row">
-							<label>Which Days?</label>
+						<div class="form-section">
+							<h3>What days of the week do you want to work on this goal?</h3>
 								<div>
-									<span ng-repeat="day in days">
-									<input type="checkbox" name="selectedDays[]" value="{{ day }}" ng-checked="selection.indexOf(day) > -1" ng-click="toggleSelection(day)"/> {{ day.name }}
+									<span ng-repeat="day in days" class="inlineblock">
+										<input type="checkbox" id="{{ day }}" value="{{ day }}" ng-checked="selectedDays.indexOf(day) !== -1" ng-click="toggleSelection(day)"/> 
+										<label for="{{ day }}"><span></span>{{ day }}</label>
 									</span>
 								</div>
-
-						<div>			
-							<legend>Define Your Milestones</legend>
-								<label>Milestone</label>
-									<input type="text" ng-model="task.milestones">
 						</div>
 
-						<div>
+						<div class="large-11 inlineblock">
+							<legend>How are you going to reward yourself?:</legend>
+								<textarea rows="2" width="60" placeholder="When you {{ task.title | lowercase }}, how will you reward yourself?" ng-model="task.reward"></textarea>
+							</legend>
+						</div>
+						
+						<div>			
+							<legend>Define Your Milestones:</legend>
+								<div class="large-7 inlineblock">
+									<label>Milestone</label>
+										<input type="text" ng-model="task.milestones.milestone" />
+								</div>
+								<div class="large-3 inlineblock">
+									<label>Target Date</label>
+										<input type="date" ng-model="task.milestones.date" />
+								</div>
+								<div class="large-1 inlineblock">
+									<button class="secondary tiny"><i class="fa fa-plus-square-o fa-2x"></i></button>
+								</div>
+						</div>
+
+						<div class="large-11 inlineblock">
+							<legend>Notes</legend>
+								<textarea rows="2" width="60" placeholder="Why do you want to {{ task.title | lowercase }}?" ng-model="task.notes.note"></textarea>
+						</div>
+
+						<div class="large-11 inlineblock">
 							<legend>Website</legend>
 								<input type="url" name="website" placeholder="If you have one, put it here" ng-model="task.website">
 						</div>
-						<div>
-							<legend>Notes</legend>
-								<textarea rows="5" width="60" placeholder="Enter your notes here" ng-model="task.notes"></textarea>
+						<div ng-show="addGoal.website.$invalid && addGoal.website.$dirty">
+							<div ng-show="addGoal.website.$error" class="required">Your website must start with 'http://' or 'https://'</div>
 						</div>
+
 						<div>
-							<legend>Privacy</legend>
-								<span ng-repeat="setting in privacy">
-									<input type="radio" name="{{ setting.name }}" value="{{ setting.name }}" ng-model="task.privacy" selected="  "> {{ setting.name }}
+							<legend>Privacy <span class="required">*</span></legend>
+								<span ng-repeat="setting in privacy" class="inlineblock selector">
+									<label>
+										<input type="radio" name="privacy" value="{{ setting }}" ng-model="task.privacy"  required />
+									<span></span>{{ setting }}
+								</label>
 								</span>	
 						</div>
 						<div>
-							<button type="submit" class="button" ng-submit="addTask(task)">Add Task</button>
+							<button type="submit" class="button" ng-disabled="addGoal.$invalid" ng-submit="addTask(task)">Add Task</button>
 						</div>
 					</div>
 			</div>

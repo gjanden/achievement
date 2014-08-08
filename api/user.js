@@ -7,8 +7,7 @@
         lastName: String,
         email: String,
         mobile: Number,
-        password: String,
-        tasks: Array
+        password: String
     });
 
 

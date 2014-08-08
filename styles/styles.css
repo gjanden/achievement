@@ -52,6 +52,9 @@ body {
 	font-size: 1.4em;
 	line-height: 1.4rem;
 }
+label {
+	margin-bottom: 5px;
+}
 .container {
 	width: 80%;
 	padding: 15px;
@@ -64,11 +67,47 @@ a.logo {
 	font-size: 1.5em;
 	color: #fff;
 }
+input[type="checkbox"] {
+	display: none;
+}
+input[type="checkbox"] + label span {
+	display: inline-block;
+	width: 19px;
+	height: 19px;
+	margin: -1px 4px 0px 0px;
+	vertical-align: middle;
+	background-color: gray;
+	cursor: pointer;
+	border-radius: 10px;
+}
+input[type="checkbox"]:checked + label span {
+	background: orange -19px;
+	border-radius: 10px;
+}
+
+/* Form validation */
+input.ng-invalid.ng-dirty {
+	border: 2px solid red;
+}
+input.ng-valid.ng-dirty {
+	border: 2px solid green;
+}
+select.ng-invalid.ng-dirty {
+	border: 2px solid red;
+}
+select.ng-valid.ng-dirty {
+	border: 2px solid green;
+}
+textarea.ng-invalid.ng-dirty {
+	border: 2px solid red;
+}
+textarea.ng-valid.ng-dirty {
+	border: 2px solid green;
+}
 .mainNav {
 	height: 50px;
 	width: 100%;
 	position: relative;
-	/*background-color: orange;*/
 	background: rgba(255,163,77,1);
 	background: -moz-linear-gradient(top, rgba(255,163,77,1) 0%, rgba(255,129,11,1) 99%, rgba(255,129,10,1) 100%);
 	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,163,77,1)), color-stop(99%, rgba(255,129,11,1)), color-stop(100%, rgba(255,129,10,1)));
@@ -86,8 +125,8 @@ a.logo {
 	padding-right: 1em;	
 }
 .mainNav div a {
-
 	text-decoration: none;
+	text-shadow: 0px 0px 15px #fff;
 	color: #fff;
 }
 .mainNav div a:hover {
@@ -133,10 +172,12 @@ a.logo {
 	color: orange;
 }
 .addNew {
-	color: gray;
 	text-align: center;
-	width: 100%;
 	border-bottom: 1px solid orange;	
+}
+.bottom-border {
+	border-bottom: 1px solid orange;
+	margin-bottom: 10px;	
 }
 .addBtn {
 	margin-top: 5px;
@@ -146,18 +187,64 @@ a.logo {
 .addBtn:hover {
 	color: orange;
 }
-/*.add-task-modal {
-	position: absolute;
-	z-index: 1000;
-	background: white;
-	opacity: 0.9;
-
-}*/
-/*.add-task-modal form {
-	padding: 15px;
+.inlineblock {
+	display: inline-block;
+}
+.required {
+	color: red;
+	font-size: 0.8em;
+}
+.selector {
+	padding-right: 10px;
+}
+.form-section {
+	margin-bottom: 5px;
+}
+.title {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.3em;
+	padding-bottom: 10px;
+}
+.goal-title {
+	text-align: center;
+	font-weight: bold;
+	padding-top: 5px;
+	margin-bottom: 5px;
+}
+.task-item {
+	font-weight: bold;
+	margin-bottom: 10px;
+	vertical-align: text-bottom;
+}
+.detail {
+	text-align: right;
+}
+.taskselected {
+	color: orange;
+}
+.calendar-labels {
+	text-align: justify;
+	display: inline-block;
 	border: 2px solid orange;
-	border-radius: 10px;
-	margin: 0 auto;	
-}*/
-
-
+	height: 40px;
+	width: 150px;
+	border-radius: 15px 15px 0px 0px;
+}
+.calendar-labels:hover, .dayselected {
+	display: inline-block;
+	background: orange;
+	color: white;
+	text-shadow: 0px 0px 15px #fff;
+	height: 40px;
+	width: 150px;
+	border-radius: 15px 15px 0px 0px;
+}
+.calendar-days {
+	text-align: center;
+	padding-top: 5px;
+}
+.task-view {
+	border: 2px solid orange;
+	width: 100%;
+}

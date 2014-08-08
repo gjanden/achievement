@@ -21,5 +21,9 @@ app.config(function($routeProvider){
 		templateUrl: 'templates/settings.html',
 		controller: 'settingsCtrl'
 	})	
+	.when('/register', {
+		templateUrl: 'templates/register.html',
+		controller: 'registerCtrl'
+	})
 	.otherwise({ redirectTo: '/' });
 });

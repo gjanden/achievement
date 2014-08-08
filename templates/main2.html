@@ -1,10 +1,21 @@
 <div class="" ng-controller="mainCtrl">
-	<h2></h2>
-	<ul>
-		<li ng-repeat"task in tasks">
-			<div class="">
-				<div class="">{{ task.title }}</div>
+	<h1 class="title">My Goal Calendar:</h1>
+	<div ng-repeat="day in days" ng-click="setSelectedDay(day)" class="calendar-labels">
+		<div ng-class="{dayselected: isSelected(day)}">
+			<div class="calendar-days">
+				<span >{{ day.name }}</span>
 			</div>
-		</li>
-	</ul>
-</div>
+		</div>
+	</div>
+	<div class="large-11 columns">
+<!-- 		<div ng-show="!selectedDay"> -->
+			<div ng-repeat="task in taskList">
+				<div class="task-box">
+					<div class="goal-title">{{ selectedDay.title }}</div>
+				</div> 
+			</div>
+			<div ng-show="">
+				<span>
+			</div>
+<!-- 		</div> -->
+	</div>

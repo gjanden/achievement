@@ -1,20 +1,27 @@
 
 <!-- task sidebar display -->
 <div class="large-4 columns">
-	<h2>Current Tasks</h2>
+	<h2 class="title bottom-border">Current Goals</h2>
 		<ul id="taskListing">
 			<li ng-repeat="task in taskList track by $index" ng-click="setSelectedTask(task)">
-				<div class="taskListing" ng-class="{selected: isSelected(task)}">
-					<div>{{ task.title }}</div>
-					<div>{{ task.beginningDate | date}} - {{ task.endingDate | date}}</div>
+				<div class="taskListing" ng-class="{taskselected: isSelected(task)}">
+					<div class="goal-title">{{ task.title }}</div>
+					<div>
+						<span class="large-5 inlineblock">Beginning Date:</span>
+						<span class="right">{{ task.beginningDate | date }}</span>
+					</div>
+					<div>
+						<span class="large-5 inlineblock">Target Date:</span>
+						<span class="right">{{ task.endingDate | date }}</span>
+					</div>
 				</br>
 				</div>
 			</li>
 		</ul>
 	<div class="addNew">
 		<span>
-			<button type="button" ng-click="showForm(); newTask=true" ng-hide="showButton()" ng-show="showButton()">Add New</button>
-			<button type="button" ng-click="hideForm(); newTask=false" ng-show="showButton()">Cancel New</button>
+			<button type="button" ng-click="showForm()" ng-hide="showButton()" >Add New</button>
+			<button type="button" ng-click="hideForm()" ng-show="showButton()">Cancel New</button>
 		</span>
 	</div>
 </div>
@@ -25,17 +32,68 @@
 		<h2>No Selected Task</h2>
 	</div>
 	<div class="add-task-modal" ng-include="'templates/taskmodal.html'" ng-show="newTask"></div>
-	<div ng-click="hideForm()" ng-show="selectedTask">
-		<h2>Task Details</h2>
-			<div>Title:{{ selectedTask.title }}</div>
-			<div>Category:{{ selectedTask.category }}</div>
-			<div>Date Range:{{ selectedTask.beginningDate | date}} to {{ selectedTask.endingDate | date}}</div>
-			<div>Days:{{ selectedTask.days }}</div>
-			<div>My Milestones:{{ selectedTask.milestones }}</div>
-			<div>URL:{{ selectedTask.website }}</div>
-			<div>Notes:{{ selectedTask.notes }}</div>
-			<div>Privacy Settings:{{ selectedTask.privacy }}</div>
-			<div><button class="button" ng-click="removeTask(selectedTask)">Delete</button></div>
+	<div ng-show="selectedTask" class="large-11 inlineblock">
+		<h2 class="title bottom-border">Goal Details</h2>
+			<div class="title">{{ selectedTask.title }}</div>
+
+			<div>
+				<span class="large-3 inlineblock task-item">Category:</span>
+				<span class="large-8 inlineblock detail">{{ selectedTask.category }}</span>
+			</div>
+
+			<div>
+				<span class="large-3 inlineblock task-item">Beginning Date:</span>
+				<span class="large-8 inlineblock detail">{{ selectedTask.beginningDate | date}}</span>
+			</div>
+
+			<div>
+				<span class="large-3 inlineblock task-item">Target Date:</span>
+				<span class="large-8 inlineblock detail">{{ selectedTask.endingDate | date}}</span>
+			</div>
+
+			<div>
+				<span class="large-3 inlineblock task-item">Days:</span>
+				<span class="large-8 inlineblock detail">{{ selectedTask.days }}</span>
+			</div>
+
+			<div ng-show="selectedTask.reward ">
+				<div class="large-3 inlineblock task-item">
+					<span>Reward:</span>
+				</div>
+				<div class="large-8 inlineblock detail">
+					<span>{{ selectedTask.reward }}</span>
+				</div>
+			</div>
+
+			<div ng-show="selectedTask.milestones.milestone">
+				<div>
+					<span class="large-3 inlineblock task-item">My Milestones:</span>
+					<span class="large-8 inlineblock detail">{{ selectedTask.milestones.milestone }} (Target Date: {{ selectedTask.milestones.date | date }})</span>
+				</div>
+			</div>
+
+			<div ng-show="selectedTask.website">
+				<div>
+					<span class="large-3 inlineblock task-item">Website:</span>
+					<span class="large-8 inlineblock detail">{{ selectedTask.website }}</span>
+				</div>
+			</div>
+
+			<div ng-show="selectedTask.notes">
+				<div>
+					<span class="large-3 inlineblock task-item">Notes:</span>
+					<span class="large-8 inlineblock detail">{{ selectedTask.notes.note }}</span>
+				</div>
+			</div>
+
+			<div>
+				<span class="large-3 inlineblock task-item">Privacy Settings:</span>
+				<span class="large-8 inlineblock detail">{{ selectedTask.privacy }}</span>
+			</div>
+
+			<div class="bottom-border">
+				<button class="button" ng-click="removeTask(selectedTask)">Delete</button>
+			</div>
 	</div>
 </div>
 

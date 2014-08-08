@@ -1,4 +1,4 @@
-angular.module('ProfileModule', [])
-	.controller('profileCtrl', ['$scope', function($scope){
+angular.module('achievementApp')
+	.controller('profileCtrl', function($scope){
 	
-	}]);
+	});

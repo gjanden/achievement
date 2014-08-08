@@ -1,14 +1,19 @@
-angular.module('RegisterModule', [])
+angular.module('achievementApp')
+ .controller('registerCtrl', function($scope, registration){
 
-   .controller('profileCtrl', ['$scope', function($scope){
-	$scope.firstName = "";
-	$scope.lastName = "";
-	$scope.email = "";
-	$scope.birthdate = "";
-	$scope.password = "";
-	$scope.months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
-	$scope.register = function(){
-		console.log('Register was called!');
-	}
+  $scope.registeredUsers = registration.get({});
 
-}]);
+		$scope.firstName = "";
+		$scope.lastName = "";
+		$scope.email = "";
+		$scope.password = "";
+
+		$scope.register = function(obj){
+			$scope.registeredUsers.push(obj);
+			registration.add(obj);
+
+			console.log(obj);
+			console.log('Register was called!');
+		};
+
+	});

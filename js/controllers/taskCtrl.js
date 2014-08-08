@@ -1,57 +1,68 @@
 angular.module('achievementApp')
   .controller('taskCtrl', function($scope, $http, tasks){
+
 			$scope.taskList = tasks.get({});
 
-			$scope.days = [
-				{name:'Monday', selected:false},
-				{name:'Tuesday', selected:false},
-				{name:'Wednesday', selected:false},
-				{name:'Thursday', selected:false},
-				{name:'Friday', selected:false},
-				{name:'Saturday', selected:false},
-				{name:'Sunday', selected:false}
-				];
+			$scope.days = ['Sun','Mon','Tues','Wed','Thurs','Fri','Sat'];
 
-			$scope.categories = ['Physical','Mental','Spiritual','Social','Emotional','Other'];
+			$scope.categories = ['Physical','Mental','Spiritual','Social','Emotional','Professional','Financial','Other'];
 			
-			$scope.privacy = [
-				{name:'Private', value:true, selected:true},
-				{name:'Public', value:false, selected:false}
-				];
+			$scope.privacy = ['Private','Public'];
+
+			$scope.selectedDays = [];
 
 			var show = false;
 			$scope.showForm = function(){
 				show = true;
+				$scope.newTask = true;
+				$scope.selectedTask = false;
 			};
 			$scope.hideForm = function(){
 				show = false;
+				$scope.newTask = false;
 			};
 			$scope.showButton = function(){
 				return show;
 			}
 
+			// Check box functions
+			$scope.toggleSelection = function(day){
+	    if ($scope.selectedDays.indexOf(day) === -1) {
+         $scope.selectedDays.push(day);
+     } else {
+         $scope.selectedDays.splice($scope.selectedDays.indexOf(day), 1);
+     }
+			}
+
 			// $scope.newTask = false;
 			$scope.selectedTask;		
-			
+			$scope.goal = {};
+
 			$scope.addTask = function(obj){
+				obj.days = $scope.selectedDays;
 				$scope.taskList.push(obj);
 				tasks.add(obj);
-
+				$scope.newTask = false;
+				$scope.hideForm();
 				console.log(obj);
 				console.log('addTask successfully called');
+				$http({
+					method: 'POST',
+					url: 'http://localhost:3000/sendtext',
+					data: {}
+				})
 			};
 
 			$scope.removeTask = function(obj){
     tasks.delete(obj);
     var index = $scope.taskList.indexOf(obj);
-    console.log(index);
     $scope.taskList.splice(index,1);
-    console.log('removeTask was called');
+    $scope.selectedTask = false;
 			};
-
 
 			$scope.setSelectedTask = function(task){
 				$scope.selectedTask = task;
+				$scope.hideForm();
 			};
 
 			$scope.isSelected = function(task){
@@ -59,5 +70,6 @@ angular.module('achievementApp')
 					return $scope.selectedTask === task;
 				}
 			};
-			
+		
+
 });
