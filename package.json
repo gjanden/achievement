@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "achievement",
   "version": "0.0.1",
   "dependencies": {
     "angular": "*",
@@ -10,5 +10,25 @@
     "express": "*",
     "mongoose": "^3.8.12",
     "ng-resource": "^1.2.18-2"
-  }
+  },
+  "main": "api/app.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gjanden/achievement.git"
+  },
+  "keywords": [
+    "achievement",
+    "app",
+    "heroku"
+  ],
+  "author": "gjanden-mitchell",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gjanden/achievement/issues"
+  },
+  "homepage": "https://github.com/gjanden/achievement"
 }
