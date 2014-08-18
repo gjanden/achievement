@@ -33,6 +33,6 @@ app.delete('/tasks/:_id', api.deleteTask);
 app.post('/sendtext', api.sendText);
 
 
-app.listen(process.env.port || 3000, function(){
+app.listen(process.env.PORT || 3000, function(){
     console.log('connected!');
 });
