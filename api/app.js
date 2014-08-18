@@ -14,7 +14,7 @@ var mongoUri = process.env.MONGOLAB_URI ||
   'mongodb://localhost/achievement';
 mongoose.connect(mongoUri);
 
-var api = require('../API/api.js');
+var api = require('api.js');
 
 //User endpoints
 app.get('/users', api.getUser);
