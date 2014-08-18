@@ -1,5 +1,5 @@
-var User = require('../API/user.js');
-var Task = require('../API/task.js');
+var User = require('./user.js');
+var Task = require('./task.js');
 var twilio = require('twilio');
 var client = new twilio.RestClient('AC7902c7568d763bc50ad0628166dcf86b', 'f88bbab8636f014b91dbfcc3ef76301f');
 //Users
