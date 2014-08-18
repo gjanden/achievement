@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
+app.use(express.static(__dirname + '/static'));
+
 var mongoUri = process.env.MONGOLAB_URI ||
   process.env.MONGOHQ_URL ||
   'mongodb://localhost/achievement';
