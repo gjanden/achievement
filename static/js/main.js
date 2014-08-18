@@ -7,7 +7,7 @@ app.config(function($routeProvider){
 	})
 	.when('/tasks', {
 		templateUrl: 'templates/task.html',
-		controller: 'taskCt''(${$.:(rl'
+		controller: 'taskCtrl'
 	})
 	.when('/achievements', {
 		templateUrl: 'templates/achievements.html',
