@@ -11,19 +11,6 @@ angular.module('achievementApp')
 
 			$scope.selectedDays = [];
 
-			var defaultForm = {
-				title: '',
-				category: '',
-				beginningDate: '',
-				endingDate: '',
-				day: '',
-				reward: '',
-				milestones: '',
-				notes: '',
-				website: '',
-				privacy: ''
-			};
-
 			var show = false;
 			$scope.showForm = function(){
 				show = true;
@@ -65,10 +52,12 @@ angular.module('achievementApp')
 				// 	data: {}
 				// })
 				$scope.addGoal.setPristine();
-				$scope.task = defaultForm;
+
 			};
 
 			$scope.editTask = function(obj){
+
+				$scope.selectedTask = false;
 				console.log('editTask was called');
 			};
 
