@@ -48,7 +48,7 @@ angular.module('achievementApp')
 				console.log('addTask successfully called');
 				$http({
 					method: 'POST',
-					url: 'http://localhost:3000/sendtext',
+					url: '/sendtext',
 					data: {}
 				})
 			};
