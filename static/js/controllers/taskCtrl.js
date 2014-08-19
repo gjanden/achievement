@@ -19,9 +19,7 @@ angular.module('achievementApp')
 				day: '',
 				reward: '',
 				milestones: '',
-				milestones: '',
-				notes.note: '',
-				notes.date: '',
+				notes: '',
 				website: '',
 				privacy: ''
 			};
