@@ -11,6 +11,21 @@ angular.module('achievementApp')
 
 			$scope.selectedDays = [];
 
+			var defaultForm = {
+				title: '',
+				category: '',
+				beginningDate: '',
+				endingDate: '',
+				day: '',
+				reward: '',
+				milestones.milestone: '',
+				milestones.date: '',
+				notes.note: '',
+				notes.date: '',
+				website: '',
+				privacy: ''
+			};
+
 			var show = false;
 			$scope.showForm = function(){
 				show = true;
@@ -51,7 +66,8 @@ angular.module('achievementApp')
 					url: '/sendtext',
 					data: {}
 				})
-				$scope.task = '';
+				$scope.addGoal.setPristine();
+				$scope.task = defaultForm;
 			};
 
 			$scope.editTask = function(obj){
