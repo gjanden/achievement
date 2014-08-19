@@ -224,6 +224,7 @@ textarea.ng-valid.ng-dirty {
 	vertical-align: text-bottom;
 }
 .detail {
+	float: right;
 	text-align: right;
 }
 .taskselected {
