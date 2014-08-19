@@ -51,6 +51,7 @@ angular.module('achievementApp')
 					url: '/sendtext',
 					data: {}
 				})
+				$scope.task = null;
 			};
 
 			$scope.editTask = function(obj){
