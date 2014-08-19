@@ -64,7 +64,7 @@ angular.module('achievementApp')
 					url: '/sendtext',
 					data: {}
 				})
-				$scope.$$childTail.addGoal.setPristine();
+				$scope.addGoal.setPristine();
 				$scope.task = defaultForm;
 			};
 
