@@ -53,6 +53,10 @@ angular.module('achievementApp')
 				})
 			};
 
+			$scope.editTask = function(obj){
+				console.log('editTask was called');
+			};
+
 			$scope.removeTask = function(obj){
     tasks.delete(obj);
     var index = $scope.taskList.indexOf(obj);
