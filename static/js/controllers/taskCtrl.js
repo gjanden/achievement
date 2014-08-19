@@ -59,11 +59,11 @@ angular.module('achievementApp')
 				$scope.hideForm();
 				console.log(obj);
 				console.log('addTask successfully called');
-				$http({
-					method: 'POST',
-					url: '/sendtext',
-					data: {}
-				})
+				// $http({
+				// 	method: 'POST',
+				// 	url: '/sendtext',
+				// 	data: {}
+				// })
 				$scope.addGoal.setPristine();
 				$scope.task = defaultForm;
 			};
