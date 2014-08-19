@@ -215,6 +215,9 @@ textarea.ng-valid.ng-dirty {
 	padding-top: 5px;
 	margin-bottom: 5px;
 }
+.task-list {
+	cursor: pointer;
+}
 .task-item {
 	font-weight: bold;
 	margin-bottom: 10px;
