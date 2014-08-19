@@ -190,6 +190,9 @@ textarea.ng-valid.ng-dirty {
 .inlineblock {
 	display: inline-block;
 }
+.inline {
+	display: inline;
+}
 .required {
 	color: red;
 	font-size: 0.8em;
