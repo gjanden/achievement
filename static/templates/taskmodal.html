@@ -21,11 +21,14 @@
 					<legend>Set your dates:</legend>
 						<div class="large-4 inlineblock">
 							<label>When do you want to start? <span class="required">*</span></label>
-								<input type="date" ng-model="task.beginningDate" required />
+								<input type="date" ng-model="task.beginningDate" lower-than="{{ task.endingDate }}" required />
 						</div>
 						<div class="large-4 inlineblock">
 							<label>What is your target date? <span class="required">*</span></label>	
 								<input type="date" ng-model="task.endingDate" required />
+						</div>
+						<div class="large-8" ng-show="addGoal.beginningDate.$dirty && addGoal.beginningDate.$invalid">
+							<div ng-show="addGoal.beginningDate.$error.lowerThan" class="required">Your target date must be after your start date.</div>
 						</div>
 
 <!-- What days does the task apply to? -->
